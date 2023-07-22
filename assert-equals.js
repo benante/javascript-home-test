@@ -1,3 +1,3 @@
 function assertEquals(expect, actual) {}
 
-module.exports = assertEquals
+export default assertEquals;
