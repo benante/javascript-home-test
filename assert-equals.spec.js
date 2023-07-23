@@ -1,13 +1,10 @@
 import assertEquals from "./assert-equals";
 
-describe("assertEquals", () => {
-  describe("when expected and actual are the same string", () => {
-    it("returns without throwing an error", () => {
-      expect(() => assertEquals("abc", "abc")).not.toThrow();
-    });
+describe("when `expected` and `actual` are equal", () => {
+  test("`abc` is equal to `abc`", () => {
+    expect(assertEquals("abc", "abc")).toBe(true);
   });
-
-  describe("when expected and actual are different strings", () => {
-    it.todo("throws an error");
+  test("1 is equal to 1", () => {
+    expect(assertEquals(1, 1)).toBe(true);
   });
 });
