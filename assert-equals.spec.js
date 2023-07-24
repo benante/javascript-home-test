@@ -1,10 +1,11 @@
-import assertEquals from "./assert-equals";
+// import checkDataType from "./assert-equals";
+import { checkArguments } from "./assert-equals";
 
-describe("when `expected` and `actual` are equal", () => {
-  test("`abc` is equal to `abc`", () => {
-    expect(assertEquals("abc", "abc")).toBe(true);
+describe("checkArguments function test", () => {
+  test("Missing argument", () => {
+    expect(checkArguments(1)).toBe(false);
   });
-  test("1 is equal to 1", () => {
-    expect(assertEquals(1, 1)).toBe(true);
+  test("Working with both arguments", () => {
+    expect(checkArguments("hello OakNorth", 666)).toBe(true);
   });
 });

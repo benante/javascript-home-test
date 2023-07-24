@@ -1,9 +1,15 @@
-function assertEquals(expect, actual) {
-  if (expect === actual) {
-    console.log("equal");
+function checkArguments(value1, value2) {
+  if (value1 !== undefined && value2 !== undefined) {
     return true;
   }
-  return new Error(`Expect "${expect}" but "${actual}" returned`);
+  return false;
 }
 
-export default assertEquals;
+// function checkSameDataType(var1, var2) {
+//   if (typeof var1 !== typeof var2) {
+//     return false;
+//   }
+//   return true;
+// }
+
+export { checkArguments };
