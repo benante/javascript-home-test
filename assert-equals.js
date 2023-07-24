@@ -5,11 +5,12 @@ function checkArguments(value1, value2) {
   return false;
 }
 
-// function checkSameDataType(var1, var2) {
-//   if (typeof var1 !== typeof var2) {
-//     return false;
-//   }
-//   return true;
-// }
+function checkSameDataType(var1, var2) {
+  if (typeof var1 !== typeof var2) {
+    return false;
+  }
+  return true;
+}
 
 export { checkArguments };
+export { checkSameDataType };
