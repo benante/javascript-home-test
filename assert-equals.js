@@ -1,5 +1,5 @@
-function checkArguments(value1, value2) {
-  if (value1 !== undefined && value2 !== undefined) {
+function checkArguments(var1, var2) {
+  if (var1 !== undefined && var2 !== undefined) {
     return true;
   }
   return false;
@@ -12,5 +12,11 @@ function checkSameDataType(var1, var2) {
   return true;
 }
 
-export { checkArguments };
-export { checkSameDataType };
+function comparePrimitives(var1, var2) {
+  if (var1 === var2) {
+    return true;
+  }
+  return false;
+}
+
+export { comparePrimitives, checkArguments, checkSameDataType };
