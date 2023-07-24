@@ -3,14 +3,20 @@ import {
   checkSameDataType,
   comparePrimitives,
   compareArrays,
+  assertEquals,
 } from "./assert-equals";
+
+// array for testing
+const helloWorld = ["hello", "world"];
+const slimShady = ["My", "name", "is", "Slim", "Shady"];
+const oneTwoThree = [1, 2, 3];
 
 describe("checkArguments function test", () => {
   test("One missing argument", () => {
-    expect(checkArguments(1)).toBe(false);
+    expect(() => checkArguments(1)).toThrowError("Error: missing argument");
   });
   test("No arguments at all", () => {
-    expect(checkArguments()).toBe(false);
+    expect(() => checkArguments()).toThrowError("Error: missing argument");
   });
   test("Working with both arguments", () => {
     expect(checkArguments("hello OakNorth", 666)).toBe(true);
@@ -42,10 +48,6 @@ describe("comparePrimitives function test", () => {
 });
 
 describe("compareArrays function test", () => {
-  const helloWorld = ["hello", "world"];
-  const slimShady = ["My", "name", "is", "Slim", "Shady"];
-  const oneTwoThree = [1, 2, 3];
-
   test(`${helloWorld} has different lenght of ${slimShady}`, () => {
     expect(compareArrays(helloWorld, slimShady)).toBe(false);
   });
@@ -56,3 +58,9 @@ describe("compareArrays function test", () => {
     expect(compareArrays(oneTwoThree, [1, 2, 3])).toBe(true);
   });
 });
+
+// describe("assertEquals function test", () => {
+//   test("[1, 2, 3] is equal to [1, 2, 3]", () => {
+//     expect(assertEquals(oneTwoThree, [1, 2, 3])).toBe(true);
+//   });
+// });

@@ -2,7 +2,7 @@ function checkArguments(var1, var2) {
   if (var1 !== undefined && var2 !== undefined) {
     return true;
   }
-  return false;
+  throw new Error("Error: missing argument");
 }
 
 function checkSameDataType(var1, var2) {
@@ -28,10 +28,23 @@ function compareArrays(array1, array2) {
       return false;
     }
   }
-
   return true;
 }
 
-compareArrays([1, 2, 3], [1, 2, 3]);
+// function assertEquals(var1, var2) {
+//   if (!checkArguments(var1, var2)) {
+//     throw new Error("Missing argument");
+//   }
+//   if (!checkSameDataType(var1, var2)) {
+//     throw new Error(`Expect ${typeof var1}, received ${typeof var2}`);
+//   }
+// }
+// assertEquals(2, "hekki");
 
-export { comparePrimitives, checkArguments, checkSameDataType, compareArrays };
+export {
+  comparePrimitives,
+  checkArguments,
+  checkSameDataType,
+  compareArrays,
+  assertEquals,
+};
