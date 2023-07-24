@@ -3,10 +3,11 @@ import {
   checkSameDataType,
   comparePrimitives,
   compareArrays,
+  assertEquals,
 } from "./assert-equals";
 
 // array for testing
-const helloWorld = ["hello", "world"];
+const helloWorld = ["Hello", "world"];
 const slimShady = ["My", "name", "is", "Slim", "Shady"];
 const oneTwoThree = [1, 2, 3];
 
@@ -55,12 +56,12 @@ describe("comparePrimitives function test", () => {
 describe("compareArrays function test", () => {
   test("Different lengths of arrays", () => {
     expect(() => compareArrays(helloWorld, slimShady)).toThrowError(
-      "Error, expected array length 2 but found 5"
+      "Error, expected array length 2 but received 5"
     );
   });
   test("Arrays with the same length but different values", () => {
     expect(() => compareArrays(helloWorld, ["this", "array"])).toThrowError(
-      "Error, expected hello but found this at index 0"
+      `Error, expected "Hello" but received "this"`
     );
   });
   test("Arrays with the same length and values", () => {
@@ -68,8 +69,24 @@ describe("compareArrays function test", () => {
   });
 });
 
-// describe("assertEquals function test", () => {
-//   test("[1, 2, 3] is equal to [1, 2, 3]", () => {
-//     expect(assertEquals(oneTwoThree, [1, 2, 3])).toBe(true);
-//   });
-// });
+describe("assertEquals function test", () => {
+  test("[1, 2, 3] is equal to [1, 2, 3]", () => {
+    expect(assertEquals(oneTwoThree, [1, 2, 3])).toBe(true);
+  });
+  test("Arrays with the same length and values", () => {
+    expect(assertEquals(helloWorld, ["Hello", "world"])).toBe(true);
+  });
+  test("Arrays with the same length but different values", () => {
+    expect(() => assertEquals(helloWorld, ["Hello", "Kitty"])).toThrowError(
+      `Error, expected "world" but received "Kitty"`
+    );
+  });
+  test("Arrays with different lengths", () => {
+    expect(() => assertEquals(helloWorld, slimShady)).toThrowError(
+      "Error, expected array length 2 but received 5"
+    );
+  });
+  test("Missing argument", () => {
+    expect(() => assertEquals()).toThrowError("Error: missing argument");
+  });
+});
