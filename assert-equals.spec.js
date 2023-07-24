@@ -2,6 +2,7 @@ import {
   checkArguments,
   checkSameDataType,
   comparePrimitives,
+  compareArrays,
 } from "./assert-equals";
 
 describe("checkArguments function test", () => {
@@ -28,7 +29,7 @@ describe("checkSameDataType function test", () => {
   });
 });
 
-describe("assertPrimitives function", () => {
+describe("comparePrimitives function test", () => {
   test("111 is equal 111", () => {
     expect(comparePrimitives(111, 111)).toBe(true);
   });
@@ -37,5 +38,21 @@ describe("assertPrimitives function", () => {
   });
   test("Tommaso is equal to Tommaso", () => {
     expect(comparePrimitives("Tommaso", "Tommaso")).toBe(true);
+  });
+});
+
+describe("compareArrays function test", () => {
+  const helloWorld = ["hello", "world"];
+  const slimShady = ["My", "name", "is", "Slim", "Shady"];
+  const oneTwoThree = [1, 2, 3];
+
+  test(`${helloWorld} has different lenght of ${slimShady}`, () => {
+    expect(compareArrays(helloWorld, slimShady)).toBe(false);
+  });
+  test(`${helloWorld} has same lenght of ["this", "array"] but different values`, () => {
+    expect(compareArrays(helloWorld, ["this", "array"])).toBe(false);
+  });
+  test(`${oneTwoThree} has same lenght and values of [1, 2, 3]`, () => {
+    expect(compareArrays(oneTwoThree, [1, 2, 3])).toBe(true);
   });
 });

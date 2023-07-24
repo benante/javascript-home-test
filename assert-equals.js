@@ -19,4 +19,19 @@ function comparePrimitives(var1, var2) {
   return false;
 }
 
-export { comparePrimitives, checkArguments, checkSameDataType };
+function compareArrays(array1, array2) {
+  if (array1.length !== array2.length) {
+    return false;
+  }
+  for (let i = 0; i < array1.length; i++) {
+    if (array1[i] !== array2[i]) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+compareArrays([1, 2, 3], [1, 2, 3]);
+
+export { comparePrimitives, checkArguments, checkSameDataType, compareArrays };
