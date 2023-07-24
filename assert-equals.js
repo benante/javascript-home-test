@@ -16,23 +16,28 @@ function checkSameDataType(var1, var2) {
 
 function comparePrimitives(var1, var2) {
   if (var1 !== var2) {
-    throw new Error(`Error, expected ${var1} but received ${var2}`);
+    throw new Error(`Error, expected "${var1}" but received "${var2}"`);
   }
   return true;
 }
 
 function compareArrays(array1, array2) {
   if (array1.length !== array2.length) {
-    return false;
+    throw new Error(
+      `Error, expected array length ${array1.length} but found ${array2.length}`
+    );
   }
+
   for (let i = 0; i < array1.length; i++) {
     if (array1[i] !== array2[i]) {
-      return false;
+      throw new Error(
+        `Error, expected ${array1[i]} but found ${array2[i]} at index ${i}`
+      );
     }
   }
+
   return true;
 }
-
 // function assertEquals(var1, var2) {
 //   if (!checkArguments(var1, var2)) {
 //     throw new Error("Missing argument");

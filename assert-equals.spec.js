@@ -42,26 +42,28 @@ describe("comparePrimitives function test", () => {
   test("111 is equal 111", () => {
     expect(comparePrimitives(111, 111)).toBe(true);
   });
-
   test("`Hello` is not equal to `hello`", () => {
     expect(() => comparePrimitives("Hello", "hello")).toThrowError(
-      "Error, expected Hello but received hello"
+      `Error, expected "Hello" but received "hello"`
     );
   });
-
-  test("Tommaso is equal to Tommaso", () => {
+  test("`Tommaso` is equal to `Tommaso`", () => {
     expect(comparePrimitives("Tommaso", "Tommaso")).toBe(true);
   });
 });
 
 describe("compareArrays function test", () => {
-  test(`${helloWorld} has different lenght of ${slimShady}`, () => {
-    expect(compareArrays(helloWorld, slimShady)).toBe(false);
+  test("Different lengths of arrays", () => {
+    expect(() => compareArrays(helloWorld, slimShady)).toThrowError(
+      "Error, expected array length 2 but found 5"
+    );
   });
-  test(`${helloWorld} has same lenght of ["this", "array"] but different values`, () => {
-    expect(compareArrays(helloWorld, ["this", "array"])).toBe(false);
+  test("Arrays with the same length but different values", () => {
+    expect(() => compareArrays(helloWorld, ["this", "array"])).toThrowError(
+      "Error, expected hello but found this at index 0"
+    );
   });
-  test(`${oneTwoThree} has same lenght and values of [1, 2, 3]`, () => {
+  test("Arrays with the same length and values", () => {
     expect(compareArrays(oneTwoThree, [1, 2, 3])).toBe(true);
   });
 });
