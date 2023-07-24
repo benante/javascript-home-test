@@ -3,7 +3,6 @@ import {
   checkSameDataType,
   comparePrimitives,
   compareArrays,
-  assertEquals,
 } from "./assert-equals";
 
 // array for testing
@@ -27,11 +26,17 @@ describe("checkSameDataType function test", () => {
   test("`Pantera` is a string like `Metallica`", () => {
     expect(checkSameDataType("Pantera", "Metallica")).toBe(true);
   });
+
   test("Arrays have not the same type of numbers", () => {
-    expect(checkSameDataType([1], 1)).toBe(false);
+    expect(() => checkSameDataType([1], 1)).toThrowError(
+      "Error, expected typeof object but received typeof number"
+    );
   });
+
   test("Numbers have different type to strings", () => {
-    expect(checkSameDataType(3, "String")).toBe(false);
+    expect(() => checkSameDataType(3, "String")).toThrowError(
+      "Error, expected typeof number but received typeof string"
+    );
   });
 });
 

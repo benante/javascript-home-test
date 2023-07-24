@@ -7,7 +7,9 @@ function checkArguments(var1, var2) {
 
 function checkSameDataType(var1, var2) {
   if (typeof var1 !== typeof var2) {
-    return false;
+    throw new Error(
+      `Error, expected typeof ${typeof var1} but received typeof ${typeof var2}`
+    );
   }
   return true;
 }
@@ -41,10 +43,4 @@ function compareArrays(array1, array2) {
 // }
 // assertEquals(2, "hekki");
 
-export {
-  comparePrimitives,
-  checkArguments,
-  checkSameDataType,
-  compareArrays,
-  assertEquals,
-};
+export { comparePrimitives, checkArguments, checkSameDataType, compareArrays };
