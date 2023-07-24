@@ -26,13 +26,11 @@ describe("checkSameDataType function test", () => {
   test("`Pantera` is a string like `Metallica`", () => {
     expect(checkSameDataType("Pantera", "Metallica")).toBe(true);
   });
-
   test("Arrays have not the same type of numbers", () => {
     expect(() => checkSameDataType([1], 1)).toThrowError(
       "Error, expected typeof object but received typeof number"
     );
   });
-
   test("Numbers have different type to strings", () => {
     expect(() => checkSameDataType(3, "String")).toThrowError(
       "Error, expected typeof number but received typeof string"
@@ -44,9 +42,13 @@ describe("comparePrimitives function test", () => {
   test("111 is equal 111", () => {
     expect(comparePrimitives(111, 111)).toBe(true);
   });
+
   test("`Hello` is not equal to `hello`", () => {
-    expect(comparePrimitives("Hello", "hello")).toBe(false);
+    expect(() => comparePrimitives("Hello", "hello")).toThrowError(
+      "Error, expected Hello but received hello"
+    );
   });
+
   test("Tommaso is equal to Tommaso", () => {
     expect(comparePrimitives("Tommaso", "Tommaso")).toBe(true);
   });

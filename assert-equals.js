@@ -15,10 +15,10 @@ function checkSameDataType(var1, var2) {
 }
 
 function comparePrimitives(var1, var2) {
-  if (var1 === var2) {
-    return true;
+  if (var1 !== var2) {
+    throw new Error(`Error, expected ${var1} but received ${var2}`);
   }
-  return false;
+  return true;
 }
 
 function compareArrays(array1, array2) {
