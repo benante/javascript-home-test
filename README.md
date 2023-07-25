@@ -1,5 +1,11 @@
 # OakNorth JavaScript Home Test
 
+## Intro
+
+This challenge was supposed to be done in roughly an hour.
+Being completely new to TDD I want to remark I spent more or less 4 hours learning basic Jest and I then wrote this test in pretty much 6 hours
+
+
 ## The challenge
 
 The aim of this exercise is to demonstrate your problem solving and understanding of JavaScript by implementing something received in every unit testing tool - an "assertEquals" method.
